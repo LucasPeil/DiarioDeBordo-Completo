@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Oxygen',
+     'Cantarell', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.hide{
+  display: none !important
+}
+.overlay{
+  z-index: 200000;
+  position: absolute;
+  padding-top: 250px ;
+  left: 0;
+  right: 0;
+  top:0;
+  bottom: 0;
+
+}
+.editProfile_background{
+  position: absolute;
+  background-color: white;
+  border: 1px solid red;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+}
+input[type="file"]{
+  display: none
+}
+label{
+  cursor: pointer;
+}
+
+.modalStyle{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:70%;
+  background-color: rgb(248, 248, 248);
+  padding:1em;
+  border-radius: 1em;
+  border: none;
+  
+ 
+}
+.editPostModal{
+  border:1px solid red;
+  position: relative;
+ 
+  
+}
+.modalStyle, .editProfileModal{
+  width:50%;
+}
+.post{
+  width: 400px;
+  border: 5px solid blue;
+}
+.singlePostModal{
+  overflow: scroll !important;
+  width:100% !important;
+}
+
+.buttonsContainer{
+  border:1px solid rgb(92, 14, 128);
+  position: absolute;
+  bottom: 2em;
+}
+.DeleteButton, .EditButton{
+  border-radius: 50% !important;
+  width: 2.8rem !important;
+  height: 2.8rem;
+  line-height: 1rem;
+  padding: 0px !important;
+  background: transparent !important;
+  border: none;
+  /*border: 0.5px solid #ccc;
+  box-shadow: 0 0 -4px  rgb(117, 117, 117) ;*/
+  color: #e71010;
+  
+  
+}
+.EditButton{
+  margin-left:0.8rem;
+  color: #01000e;
+}
+.clickable:hover{
+  cursor: pointer;
+}
+.expandText{
+  color: #a5a5a5;
+  cursor: pointer;
+}
+.expandText:hover{
+  color: #5e5d5d;
+  
+}
+.photoIcon{
+  
+  position: absolute;
+  bottom: 0.7rem;
+  right:1rem;
+  padding: 0.3em 0.7em;
+  
+}
+.message{
+  border:1px solid red
+}
+
+.updateProfileImage{
+  color: white;
+  border: 1px solid rgb(52, 51, 53);
+  padding: 0.5em 1em;
+  border-radius: 0.8em;
+  background-color: #39393b;
+}
+.updateProfileImage:hover{
+  cursor: pointer;
+  background-color: #000000;
+  transition: all 0.6s;
+  
+}
+.mainLoading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100vh;
+  margin-right: 100px;
+}
+.postTextPreview{
+
+  margin-bottom: -1.1em;
+
+  
+}
+

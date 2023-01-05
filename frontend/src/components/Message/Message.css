@@ -1,0 +1,21 @@
+
+.message{
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    position: relative;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+
+}
+.error{
+    background-color: rgba(235, 155, 155, 0.5);
+    border-color:  rgb(158, 30, 30) ;
+    color: rgb(240, 231, 229);
+}
+.success{
+    background-color: rgb(50, 161, 28);
+    border-color:  rgb(16, 119, 13) ;
+    color: rgb(240, 231, 229);
+}
