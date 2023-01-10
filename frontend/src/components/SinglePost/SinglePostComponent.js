@@ -1,13 +1,13 @@
-import { Button, Stack, Box, Avatar, Container, Divider } from '@mui/material'
+import {  Stack, Box, Avatar, Container, Divider } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getPost } from '../../slices/postSlice'
-import { uploads } from '../../utils/config'
+
 import Typography from '@mui/material/Typography';
 import { ExportedDrawerWidth } from "../Navbar/Navbar"
 import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+
 ///CARD IMPORTS FROM MATERIAL UI
 
 import Card from '@mui/material/Card';
@@ -38,7 +38,6 @@ const SinglePostComponent = () => {
     setTimeoutOptimization(true)
   }, 1000);
 
-  const ImportedDrawerWidth =  0
   return (
     
     <Container  sx={{width: { md: `calc(100% - ${ExportedDrawerWidth}px)` },  marginLeft:{ md:`${ExportedDrawerWidth}px`} }}>

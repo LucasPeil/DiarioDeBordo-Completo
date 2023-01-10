@@ -1,20 +1,11 @@
 import { useState, useEffect } from 'react'
 
-import { NavLink, Link, useNavigate, useParams } from "react-router-dom"
-
+import {useNavigate} from "react-router-dom"
 import { navbarMainItens } from './NavbarItens'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAuthorization } from '../../hooks/useAuthorization';
 import { logout, reset } from '../../slices/authSlice'
-import { getUserById, profile } from '../../slices/userSlice'
-//import { getAllowedPosts} from '../../slices/postSlice'
-
-
-
-
-//Material Ui Navbar
-
-import PropTypes from 'prop-types';
+import { profile } from '../../slices/userSlice'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -31,23 +22,16 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Avatar, ThemeProvider } from '@mui/material';
-import { uploads } from "../../utils/config"
-import { resetMessage,getAllowedPosts } from '../../slices/postSlice';
-import Message from '../Message/Message';
+import { Avatar} from '@mui/material';
+import { resetMessage} from '../../slices/postSlice';
+
 
 
 function Navbar(props) {
-
-  const { auth } = useAuthorization()
   const { user, loading } = useSelector(state => state.user)
   const { user: userAuth } = useSelector(state => state.auth)
-  const {allowedPosts, posts, loading:postLoading, error: postError} = useSelector(state=> state.post)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [showProfileImageIcon, setShowProfileImageIcon] = useState(true)
-  
-
   useEffect(() => {
     dispatch(profile())
 
@@ -85,7 +69,6 @@ function Navbar(props) {
 
 
   const drawerWidth = 200;
-  let onClickAction = ""
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -159,7 +142,7 @@ function Navbar(props) {
           sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
           aria-label="mailbox folders"
         >
-          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+
           <Drawer
             container={container}
             variant="temporary"

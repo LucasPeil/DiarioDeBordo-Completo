@@ -16,9 +16,6 @@ const publishPost = async(data, token)=>{
     }
 }
 
-
-
-
 const editPost = async(data,id, token)=>{
     const reqConfig = requestConfig("PUT",data, token)
  
@@ -64,7 +61,6 @@ try{
 }
 
 }
-
 
 const getPost = async(id, token)=>{
    const reqConfig = requestConfig("GET", "",token)

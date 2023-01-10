@@ -1,11 +1,9 @@
 
 
 import React from 'react'
-import CircularProgress from '@mui/material/CircularProgress';
 import { Box, Stack,Typography } from "@mui/material"
 import { ExportedDrawerWidth } from '../Navbar/Navbar';
-import CardMedia from '@mui/material/CardMedia';
-import { uploads } from '../../utils/config';
+
 const NoPosts = () => {
     const centralizePostsBox = ExportedDrawerWidth/2
     

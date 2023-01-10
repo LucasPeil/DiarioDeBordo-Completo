@@ -13,7 +13,6 @@ import { useAuthorization } from './hooks/useAuthorization';
 import Dashbord from "./pages/Dashbord"
 import {resetMessage} from "./slices/userSlice"
 
-import Post from './components/Post/Post';
 import { Modal, Box } from '@mui/material';
 import ProfileInfo from './components/ProfileInfo/ProfileInfo';
 import EditPostForm from './components/PostForm/EditPostForm';
@@ -38,9 +37,7 @@ function App() {
   const [username, setUsername] = useState("")
   const [profileImage, setProfileImage] = useState("")
   const [usersAllowed, setUsersAllowed] = useState("")
- 
 
-  
 // < MODAL - Edit Profile>
 const [openEditProfile, setOpenEditProfile]= useState(false)
 const handleOpenEditProfile = ()=> setOpenEditProfile(true)
@@ -55,9 +52,7 @@ const handleEditProfileEvent = (user)=>{
   dispatch(resetMessage())
   handleOpenEditProfile() 
 }
-// </MODAL - Edit Profile>
 
-//<MODAL - Edit POST>
 
 const [openPostForm, setOpenPostForm] = useState(false)
 const handleOpenPostForm = ()=> setOpenPostForm(true)
@@ -84,7 +79,6 @@ const handleOpenPostEvent = (post)=>{
 
 }
 
-
 //</MODAL -  open single post>     
   const handleEditPost = (post)=>{
     setPostToUpdate(post)
@@ -94,7 +88,6 @@ const handleOpenPostEvent = (post)=>{
     setSharedPostToUpdate(post)
     handleOpenPostForm(true)
   }
-
 
   if (loading){
     return (
@@ -108,14 +101,11 @@ const handleOpenPostEvent = (post)=>{
  
     <div className="App">
        
-    
       <BrowserRouter>
       {auth &&
         <Navbar />
       }
-     
-        
-    
+ 
 
         {/* Inicio - Modal de edição do perfil*/}
         <Modal  open={openEditProfile} onClose={handleCloseEditProfile} aria-labelledby="Botão para editar foto">
@@ -135,7 +125,6 @@ const handleOpenPostEvent = (post)=>{
           <Route path="/user/:id" element={auth? <ProfileInfo/>: <Navigate to="/login"/>} />
           
           <Route path="login" element={ !auth? <Login/>: <Navigate to="/" />} />
-          <Route path="/dashbord" element={ auth ?<Dashbord/> : <Navigate to="/login"/>} />
           <Route path="/singlePost/:id" element={ auth ?<SinglePostComponent/>: <Navigate to="/login"/>} />
           <Route path="/editPost/:id" element={ auth ? <EditPostForm sharedPostToUpdate={sharedPostToUpdate} text={text} setText={setText} title={title} setTitle={setTitle} postImages={postImages} setPostImages={setPostImages}  postToUpdate={postToUpdate} setPostToUpdate={setPostToUpdate} usersAllowed={usersAllowed} setUsersAllowed={setUsersAllowed} handleClosePostForm={handleClosePostForm} /> : <Navigate to="/login"/>} />
           

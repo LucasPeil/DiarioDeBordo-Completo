@@ -30,7 +30,7 @@
     if(data.errors){
         return  thunkAPI.rejectWithValue(data.errors[0])
     }
-    //console.log(data)
+
     return data
 
  })

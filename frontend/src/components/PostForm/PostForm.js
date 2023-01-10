@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {useEffect, useState, useRef, useMemo} from "react"
 import { ExportedDrawerWidth } from "../Navbar/Navbar"
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
-import { uploads } from "../../utils/config"
+
 import { useNavigate} from "react-router-dom"
 import Message from '../Message/Message';
 import JoditEditor from 'jodit-react';
@@ -18,12 +18,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import dayjs from 'dayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+
 
 
 
 function PostForm({title, setTitle,text, setText, postImages, setPostImages, postToUpdate, setPostToUpdate, usersAllowed, setUsersAllowed, handleClosePostForm}) {
-    const [previewImage, setPreviewImage] = useState("")
     const [selectedDate, setSelectedDate]= useState(null)
     useEffect(()=>{
       if(postToUpdate){
@@ -66,47 +65,21 @@ function PostForm({title, setTitle,text, setText, postImages, setPostImages, pos
         
       }
       
-     
-      const TransformFile = (postImages) => {
-        const reader = new FileReader();
-    
-        if (postImages) {
-          reader.readAsDataURL(postImages);
-          reader.onloadend = () => {
-            setPostImages(reader.result);
-          };
-        } else {
-          setPostImages("");
-        }
-      };
-
       const handleFile = (e)=>{
         const postImages = e.target.files[0]
-        //TransformFile(postImages)
         console.log(postImages)
         setPostImages(postImages)
-        //setPreviewImage(postImages);
       }
 
-      
-       
-
-    
       const ImportedDrawerWidth =  ExportedDrawerWidth
      
       // Jodit Text Editor
       const editor = useRef(null);
       const config = useMemo((placeholder)=>{ return {readonly: false, toolbarAdaptive:true,  removeButtons:['image','strikethrough','paragraph','classSpan','lineHeight','superscript','subscript','file','video','speechRecognize','spellcheck','cut','copyformat','hr','table','link','symbols','indent','outdent', 'showall'], placeholder: placeholder || 'Compartilhe suas experiencias...'}},[]);
-	
-    
-      
+  
   return (
   <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="pt-br">
     <Container sx={{width: { md: `calc(100% - ${ImportedDrawerWidth}px)`, marginTop:9} }}>
-
-    
-      
-   
 
     <Box sx={{ marginLeft:{ md:`${ImportedDrawerWidth}px`} }}>
       <Typography sx={{ textAlign:"center",marginTop:2}} component="h1" variant="h3" display="block" gutterBottom>
@@ -213,17 +186,4 @@ function PostForm({title, setTitle,text, setText, postImages, setPostImages, pos
     </LocalizationProvider>
   )
 }
- {/*<TextField
-                  onChange={(e)=> setText(e.target.value)}
-                  id="textArea"
-                  value={text}
-                  multiline 
-                  minRows={8}
-                  variant="outlined" 
-                  label="Texto" 
-                  placeholder="Compartilhe sua experiencia"
-                  fullWidth
-                  required
-                  
-  /> */}
 export default PostForm

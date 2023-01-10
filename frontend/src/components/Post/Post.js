@@ -16,10 +16,10 @@ import CardContent from '@mui/material/CardContent';
 import { deletePost} from "../../slices/postSlice"
 
 const Post = ({handleEditPost, postToUpdate, setPostToUpdate}) => {
-    const {id} = useParams()
+    
     const dispatch = useDispatch()
     const { post, loading: postLoading, error: postError, message: postMessage} = useSelector((state)=> state.post)
-    const { user, loading } = useSelector((state) => state.user);
+    const { user } = useSelector((state) => state.user);
     const{user:userAuth} = useSelector((state)=> state.auth)
    useEffect(()=>{
         dispatch(getPost(postToUpdate._id))
@@ -81,12 +81,3 @@ const Post = ({handleEditPost, postToUpdate, setPostToUpdate}) => {
 }
 
 export default Post
-
-   /*<div>
-        <h1>{post.title}</h1>
-        <img src={`${uploads}/postsImages/${post.postImages}`}/>
-        <p>{post.text}</p>
-        <div>
-          <Button onClick={()=>{ handleEdit(post);}} color="secondary">Editar</Button>
-        </div>
-  </div>*/

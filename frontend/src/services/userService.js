@@ -1,6 +1,5 @@
 import {api, requestConfig} from "../utils/config"
 
-
 const profile =  async(data, token)=>{
 
     const reqConfig = requestConfig("GET", data, token)
@@ -8,12 +7,9 @@ const profile =  async(data, token)=>{
 
         const response = await fetch(api + "/users/profile", reqConfig)
                                 .then((resp)=> resp.json())
-                                .catch((err)=> err)
-        
-       
+                                .catch((err)=> err)    
             return response
-
-
+            
     }catch(err){
         console.log(err)
     }   

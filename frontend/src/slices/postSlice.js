@@ -91,11 +91,6 @@ export const getUserPosts = createAsyncThunk("post/getUserPosts", async(id, thun
    
     const token = thunkAPI.getState().auth.user.token
   
-   /* if(token){
-        console.log(token)
-    }else{
-        console.log("sem token")
-    }*/
     const data = await postService.getUserPosts(id,token)
     
     if(data.errors){

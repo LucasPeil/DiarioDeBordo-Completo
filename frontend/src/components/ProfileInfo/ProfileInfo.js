@@ -1,11 +1,10 @@
 import React from 'react'
 import { Box, Button, Stack, Grid, Modal, Divider, Typography, Container } from "@mui/material"
-import { uploads } from "../../utils/config"
 import {getUserById} from "../../slices/userSlice"
 import { ExportedDrawerWidth } from "../Navbar/Navbar"
 import { Avatar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux'
-import {useState,useEffect} from "react"
+import {useEffect} from "react"
 import { useParams } from 'react-router-dom'
 
 const ProfileInfo = () => {
@@ -16,7 +15,7 @@ const ProfileInfo = () => {
         dispatch(getUserById(id))
         
     },[dispatch])
-    const { user, loading } = useSelector((state) => state.user);
+    const { user } = useSelector((state) => state.user);
     
 
     return (

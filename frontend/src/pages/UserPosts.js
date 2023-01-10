@@ -24,7 +24,7 @@ import LoadingComponent from "../components/LoadingComponent"
 import NoPosts from "../components/NoPosts/NoPosts"
 
 
- const UserPosts = ({ handleOpenPostEvent, openSinglePostComponent, handleEditPost, profileImage,setProfileImage,handleEditProfileEvent}) =>{
+ const UserPosts = ({profileImage,setProfileImage,handleEditProfileEvent}) =>{
 
    
     const { user, loading } = useSelector((state) => state.user);
@@ -40,19 +40,11 @@ import NoPosts from "../components/NoPosts/NoPosts"
     const handleOpenProfileImage = ()=> setOpenProfileImage(true)
     const handleCloseProfileImage = () => setOpenProfileImage(false)
     const [previewImage, setPreviewImage] = useState("");
-    let profileImageUrl = ""
-
-
 
 useEffect(()=>{
         dispatch(profile())
-    
-        dispatch(getUserPosts(user._id))
-    
-        
-        
+        dispatch(getUserPosts(user._id))    
     },[dispatch])
-
 
     const modalStyle={ position: "absolute", top:"50%",left:"50%",transform:"translate(-50%,-50%)", width:400,bgcolor: "white",p:4,borderRadius: "5"}
     
@@ -65,10 +57,7 @@ useEffect(()=>{
     const handleProfileImage = ()=>{
        handleOpenProfileImage()
     }
-
-    // Abre o Modal para editar DADOS do usuario
   
-
     // Lida com o envio da foto de pefil
     const handleSubmitProfileImage = (e)=>{
         e.preventDefault()
@@ -87,10 +76,7 @@ useEffect(()=>{
         dispatch(updateProfile(formData))
         dispatch(resetMessage())
         handleCloseProfileImage()
-     }
-
-    
-        
+     } 
      const handleFile = (e)=>{
         const profileImage = e.target.files[0]
         setProfileImage(profileImage)
@@ -98,9 +84,6 @@ useEffect(()=>{
       }
       
       const centralizePostsBox = ExportedDrawerWidth/2
-     
-     
-
     return(
        
         <Box sx={{width: { md: `calc(100% - ${ExportedDrawerWidth}px)` },  marginLeft:{ md:`${ExportedDrawerWidth}px`} }}>
@@ -232,11 +215,8 @@ useEffect(()=>{
                                     </Grid>
                                 ))
                                 
-                            }   
-
-                       
+                            }         
                     </Grid>
-                
                 }
                     
                 </Box>
@@ -245,15 +225,4 @@ useEffect(()=>{
         </Box>
   );
 }
-
-
-{/*<div className="clickable" onClick={()=> handleOpenPostEvent(post)} >
-                                                  {post.text.slice(0,50)}  {post.text.length > 40 && <span className="expandText">...mais</span>}            
-                                            </div>
-                                    */}
-                    
-
-
-        
- 
  export default UserPosts

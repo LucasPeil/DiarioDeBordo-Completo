@@ -6,17 +6,13 @@ import {updateProfile} from "../slices/userSlice"
 import Message from '../components/Message/Message'
 const Register = ({bio, setBio, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword,name, setName, username,setUsername, profileImage, setProfileImage,  profileToUpdate, setProfileToUpdate, handleCloseEditProfile, buttonText }) => {
     
-  
   const dispatch = useDispatch()
-  
-
   const { loading, error } = useSelector((state) => state.auth);
 
     const handleSubmit = async (e)=>{
       e.preventDefault()
      
       const user = {name, email, password, username, confirmPassword, profileImage}
-      //console.log(user)
       dispatch(register(user))
       setEmail("")
       setPassword("")
@@ -25,9 +21,6 @@ const Register = ({bio, setBio, email, setEmail, password, setPassword, confirmP
       setName("")
       
     }
-
-    
-
 
   return (
 
@@ -38,9 +31,6 @@ const Register = ({bio, setBio, email, setEmail, password, setPassword, confirmP
                 <Typography gutterBottom variant ="h4" align="center"> 
                     Registre-se
                 </Typography>
-                
-                
-
                 <CardContent>
                   {buttonText ==="Registre-se" &&
                     <Typography gutterBottom color="textSecondary" variant="body2" component="p" > 
@@ -133,10 +123,7 @@ const Register = ({bio, setBio, email, setEmail, password, setPassword, confirmP
                                       
                                   />
                               </Grid>
-                            
-            
-         
-
+       
                             <Grid xs={12}  item>
 
                             {!loading?
@@ -162,7 +149,7 @@ const Register = ({bio, setBio, email, setEmail, password, setPassword, confirmP
             
         </Box>
    
-           // <Button sx={{marginTop:3}} type="submit" variant='contained'>{buttonText}</Button>
+         
 
   )
 }

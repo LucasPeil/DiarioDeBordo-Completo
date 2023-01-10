@@ -12,13 +12,6 @@ const Login = () =>{
     const {loading, error:authError} = useSelector((state) => state.auth)
     const button = document.getElementById("submitButton")
 
-
-//<Message alert>
- 
-
-
-  //</Message alert>
-
     const handleSubmit = (e)=>{
         e.preventDefault()
         const user = {email,password}

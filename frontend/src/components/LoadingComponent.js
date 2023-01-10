@@ -12,7 +12,7 @@ const LoadingComponent = () => {
             <CircularProgress />
         </Stack>
         </Box>
-         {/* <Card  sx={{maxWidth: 450, marginLeft:{ xs:"auto", sm:"auto",lg:"20px"}, marginRight:{ xs:"auto", sm:"auto"}}}></Card> */}
+    
   </Box>
  
   )
